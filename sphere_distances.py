@@ -14,9 +14,9 @@ def get_point_on_sphere():
     return vec / np.linalg.norm(vec)
 
 
-def get_points_arr(pts):
-    arr = np.empty([pts, 3])
-    for i in range(pts):
+def get_points_arr(num_pts):
+    arr = np.empty([num_pts, 3])
+    for i in range(num_pts):
         arr[i] = get_point_on_sphere()
     
     return arr
