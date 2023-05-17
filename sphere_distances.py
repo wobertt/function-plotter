@@ -26,7 +26,15 @@ def plot_points(pts_arr):
     fig = plt.figure()
     ax = fig.add_subplot(projection='3d')
 
-    ax.scatter(pts_arr[0], pts_arr[1], pts_arr[2])
+    north_pole = np.array([0, 0, 1])
+    col = [np.linalg.norm(pt-north_pole) for pt in pts_arr.T]
+
+    ax.scatter(pts_arr[0], pts_arr[1], pts_arr[2], c=col)
+
+    R = 0.5
+    ax.set_xlim(-R, R)
+    ax.set_ylim(-R, R)
+    ax.set_zlim(-R, R)
     ax.axis('equal')
     plt.show()
 
