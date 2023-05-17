@@ -5,8 +5,7 @@ import math
 
 def plot_3d_function(function, center, radius, num_gridlines):
     fig = plt.figure()
-    # ax = plt.axes(projection='3d')
-    ax = plt.figure().add_subplot(projection='3d')
+    ax = plt.axes(projection='3d')
 
     vectorized_fn = np.vectorize(function)
 
@@ -16,7 +15,6 @@ def plot_3d_function(function, center, radius, num_gridlines):
 
     x_arr, y_arr = np.meshgrid(x_interval, y_interval)
 
-    ax.plot(x_arr, y_arr, vectorized_fn(x_arr, y_arr))
-    # ax.legend()
+    ax.plot_surface(x_arr, y_arr, vectorized_fn(x_arr, y_arr))
 
     plt.show()
